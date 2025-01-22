@@ -51,6 +51,10 @@ const config: Config = {
 					'5': 'hsl(var(--chart-5))'
 				}
 			},
+			fontFamily: {
+				primary: ['Inter', 'sans-serif'],
+				secondary: "Dosis",
+			},
 			screens: {
 				sm: '375px',
 				md: '768px',
@@ -63,9 +67,9 @@ const config: Config = {
 			},
 			container: {
 				center: true,
-				padding: '15px',
+				padding: '2rem',
 				screens: {
-					xl: '1240px'
+					xxxl: '1440px'
 				}
 			},
 			borderRadius: {

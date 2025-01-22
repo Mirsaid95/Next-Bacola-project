@@ -91,23 +91,23 @@ export const Footer = () => {
     return (
         <footer>
             <div className="bg-[#233a95] h-[500px] nr:h-[650px] md:h-[400px] lg:h-[450px] flex">
-                <div className="container mx-auto flex flex-col md:flex-row h-full justify-between pt-6 items-center">
+                <div className="container mx-auto flex flex-col md:flex-row h-full justify-between pt-4 items-center">
                     <div className="w-full h-full flex flex-col justify-center items-start">
                         <h4 className="text-[14px] text-white/90 font-normal mb-3">$20 discount for your first order</h4>
                         <h2 className="text-[26px] text-white font-semibold leading-tight mb-4">Join our newsletter and get...</h2>
-                        <p className="text-[18px] text-white/70 mb-10">
+                        <p className="text-[18px] text-white/70 mb-10 xl:w-[70%]">
                             Join our email subscription now to get updates on promotions and coupons.
                         </p>
-                        <form className="flex w-[100%] bg-white rounded-md overflow-hidden h-[70px] justify-between">
-                            <div className="relative flex items-center pl-2 w-full">
+                        <form className="flex w-[100%] bg-white rounded-md overflow-hidden h-[70px] justify-between p-2 items-center lg:w-[70%]">
+                            <div className="relative flex items-center w-full">
                                 <Mail className="w-6 h-6 text-gray-400" />
                                 <Input
                                     type="email"
                                     placeholder="Your email address"
-                                    className="h-[55px] w-[200px] placeholder:text-[14px] bg-transparent border-0 text-gray-700 placeholder:text-gray-400 focus-visible:ring-0 focus-visible:ring-offset-0 text-[16px] rounded-r-none"
+                                    className="h-[55px] w-full placeholder:text-[14px] bg-transparent border-0 text-gray-700 placeholder:text-gray-400 focus-visible:ring-0 focus-visible:ring-offset-0 text-[16px] rounded-r-none"
                                 />
                             </div>
-                            <Button className="h-[50px] w-[100px] px-7 my-auto bg-[#233a95] hover:bg-[#1b2d73] text-white text-[15px] font-medium rounded-[4px] mr-2">
+                            <Button className="h-[45px] w-[80px] bg-[#233a95] hover:bg-[#1b2d73] text-white text-[15px] font-medium rounded-[4px]">
                                 Subscribe
                             </Button>
                         </form>

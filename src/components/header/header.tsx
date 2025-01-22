@@ -23,10 +23,12 @@ import {
     AccordionTrigger,
 } from "@/components/ui/accordion"
 import { usePathname } from 'next/navigation'
+import { useCart } from '@/context/CartContext'
 
 
 export const Header = () => {
     const [isCartOpen, setIsCartOpen] = useState(false);
+    const { cartItems, totalAmount } = useCart();
     const page = [
         {
             id: 1,
@@ -102,7 +104,7 @@ export const Header = () => {
                             </ul>
 
                         </div>
-                        <div className="container flex items-center pt-3 pb-2 gap-4 justify-end w-[100%] items-end">
+                        <div className="container flex items-center pt-3 pb-2 gap-4 justify-end w-[100%]">
                             <div className="flex items-center gap-2">
                                 <SecurityIcons />
                                 <h5 className="text-[16px] text-[#3E445A]">100% Secure delivery without contacting the courier</h5>
@@ -124,31 +126,31 @@ export const Header = () => {
                         </div>
                     </div>
                 </div>
-                    <div className="container mx-auto">
-                        <div className="fixed bottom-0 left-0 z-50 w-full h-14 bg-white border-t border-gray-200 xl:hidden">
-                            <div className="grid h-full max-w-lg grid-cols-4 mx-auto">
-                                <Link href="/" className="inline-flex flex-col items-center justify-center px-5 hover:bg-gray-50 group">
-                                    <Store className="w-6 h-6 text-gray-500 group-hover:text-[#2bbef9]" />
-                                    <span className="text-xs text-gray-500 group-hover:text-[#2bbef9]">Store</span>
-                                </Link>
-                                <Link href="/search" className="inline-flex flex-col items-center justify-center px-5 hover:bg-gray-50 group">
-                                    <Search className="w-6 h-6 text-gray-500 group-hover:text-[#2bbef9]" />
-                                    <span className="text-xs text-gray-500 group-hover:text-[#2bbef9]">Search</span>
-                                </Link>
-                                <Link href="/wishlist" className="inline-flex flex-col items-center justify-center px-5 hover:bg-gray-50 group">
-                                    <Heart className="w-6 h-6 text-gray-500 group-hover:text-[#2bbef9]" />
-                                    <span className="text-xs text-gray-500 group-hover:text-[#2bbef9]">Wishlist</span>
-                                </Link>
-                                <Link href="/login" className="inline-flex flex-col items-center justify-center px-5 hover:bg-gray-50 group">
-                                    <User className="w-6 h-6 text-gray-500 group-hover:text-[#2bbef9]" />
-                                    <span className="text-xs text-gray-500 group-hover:text-[#2bbef9]">Account</span>
-                                </Link>
-                            </div>
+                <div className="container mx-auto">
+                    <div className="fixed bottom-0 left-0 z-50 w-full h-14 bg-white border-t border-gray-200 xl:hidden">
+                        <div className="grid h-full max-w-lg grid-cols-4 mx-auto">
+                            <Link href="/" className="inline-flex flex-col items-center justify-center px-5 hover:bg-gray-50 group">
+                                <Store className="w-6 h-6 text-gray-500 group-hover:text-[#2bbef9]" />
+                                <span className="text-xs text-gray-500 group-hover:text-[#2bbef9]">Store</span>
+                            </Link>
+                            <Link href="/search" className="inline-flex flex-col items-center justify-center px-5 hover:bg-gray-50 group">
+                                <Search className="w-6 h-6 text-gray-500 group-hover:text-[#2bbef9]" />
+                                <span className="text-xs text-gray-500 group-hover:text-[#2bbef9]">Search</span>
+                            </Link>
+                            <Link href="/wishlist" className="inline-flex flex-col items-center justify-center px-5 hover:bg-gray-50 group">
+                                <Heart className="w-6 h-6 text-gray-500 group-hover:text-[#2bbef9]" />
+                                <span className="text-xs text-gray-500 group-hover:text-[#2bbef9]">Wishlist</span>
+                            </Link>
+                            <Link href="/login" className="inline-flex flex-col items-center justify-center px-5 hover:bg-gray-50 group">
+                                <User className="w-6 h-6 text-gray-500 group-hover:text-[#2bbef9]" />
+                                <span className="text-xs text-gray-500 group-hover:text-[#2bbef9]">Account</span>
+                            </Link>
                         </div>
                     </div>
+                </div>
             </header>
             <nav>
-                <div className="container mx-auto flex items-center justify-between xxl:gap-[100px] shadow-[0_1px_10px_rgba(0,0,0,0.15)] md:shadow-none h-[70px] pt-2">
+                <div className="container mx-auto w-full flex items-center justify-between xxl:gap-[100px] shadow-[0_1px_10px_rgba(0,0,0,0.15)] md:shadow-none h-[70px] pt-2">
                     <Sheet>
                         <SheetTrigger asChild>
                             <span className="burger-menu cursor-pointer md:hidden">
@@ -176,7 +178,7 @@ export const Header = () => {
                                         <div className="flex items-center justify-between py-4 w-full">
                                             <Accordion type="single" collapsible className="w-full">
                                                 <AccordionItem value="categories" className="border-0">
-                                                    <AccordionTrigger className="hover:no-underline bg-[#2bbef9] hover:bg-[#2bbef9]/90 w-[280px] h-[50px] rounded-sm flex items-center gap-2 px-6 w-full">
+                                                    <AccordionTrigger className="hover:no-underline bg-[#2bbef9] hover:bg-[#2bbef9]/90  h-[50px] rounded-sm flex items-center gap-2 px-6 w-full">
                                                         <Button className="relative bg-transparent border-none shadow-none">
                                                             <div className="flex items-center gap-3">
                                                                 <Menu className="w-6 h-6" strokeWidth={2} />
@@ -293,15 +295,16 @@ export const Header = () => {
                     </Sheet>
 
                     <div className="mobile-tab-des flex items-center gap-[30px] md:hidden">
-                        <Image
-                            src="	https://klbtheme.com/bacola/wp-content/uploads/2021/04/bacola-logo-mobile.png"
-                            alt="Mobile Logo"
-                            width={120}
-                            height={38}
-                            className="h-auto"
-                            priority
-                        />
-                    </div>
+                        <Link href="/">
+                            <Image
+                                src="	https://klbtheme.com/bacola/wp-content/uploads/2021/04/bacola-logo-mobile.png"
+                                alt="Mobile Logo"
+                                width={120}
+                                height={38}
+                                className="h-auto"
+                                priority
+                            /></Link>
+                        </div>
 
                     <div className="bacola-img w-[180px] hidden md:flex flex-col items-start">
                         <Link href="/">
@@ -338,7 +341,7 @@ export const Header = () => {
 
                     <div className="flex items-center gap-8">
                         <Link href="/login" className="user-accaunt hidden md:flex">
-                            <Button variant="ghost" className="flex items-center gap-3 p-0 hover:bg-transparent">
+                            <Button variant="ghost" className="flex items-center gap-2 hover:bg-transparent">
                                 <div className="flex flex-col">
                                     <span className="text-[13px] text-gray-500 hidden md:hidden lg:block text:block">Sign in</span>
                                 </div>
@@ -352,48 +355,77 @@ export const Header = () => {
                         </Link>
 
                         <div className="mobile-items flex items-center">
-
                             <div
                                 className="relative"
                                 onMouseEnter={() => setIsCartOpen(true)}
                                 onMouseLeave={() => setIsCartOpen(false)}
                             >
                                 <Button variant="ghost" className="flex items-center gap-4 p-0 hover:bg-transparent">
-                                    <div className="hidden tab:flex"><p className="text-[15px] font-medium text-[#3E445A] ">$0.00</p></div>
+                                    <div className="hidden tab:flex">
+                                        <p className="text-[15px] font-medium text-[#3E445A]">${totalAmount.toFixed(2)}</p>
+                                    </div>
                                     <div className="w-[55px] h-[55px] rounded-full bg-[#f3f4f6] flex items-center justify-center hover:bg-blue-500 transition-colors duration-200 relative">
                                         <ShoppingCart
                                             className="w-[28px] h-[28px] text-[#3E445A] hover:text-white transition-colors duration-200"
                                             strokeWidth={1.8}
                                         />
-                                        <span className="absolute -top-2 -right-2 w-6 h-6 rounded-full bg-[#ed174a] text-white text-xs flex items-center justify-center">0</span>
+                                        <span className="absolute -top-2 -right-2 w-6 h-6 rounded-full bg-[#ed174a] text-white text-xs flex items-center justify-center">
+                                            {cartItems.length}
+                                        </span>
                                     </div>
                                 </Button>
 
                                 {isCartOpen && (
                                     <div className="absolute top-full right-0 mt-2 w-[400px] bg-white rounded-md shadow-lg border border-gray-100 z-50">
                                         <div className="p-6">
-                                            <div className="flex flex-col items-center justify-center py-8">
-                                                <div className="w-16 h-16 bg-gray-50 rounded-full flex items-center justify-center mb-4">
-                                                    <ShoppingBag className="w-8 h-8 text-gray-400" />
+                                            {cartItems.length > 0 ? (
+                                                <div className="flex flex-col gap-4">
+                                                    {cartItems.map((item) => (
+                                                        <div key={item.id} className="flex items-center gap-4">
+                                                            <img src={item.image} alt={item.name} className="w-16 h-16 object-cover rounded" />
+                                                            <div className="flex-1">
+                                                                <h3 className="text-sm font-medium text-gray-900">{item.name}</h3>
+                                                                <p className="text-sm text-gray-500">
+                                                                    {item.quantity} × ${item.price}
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                    ))}
+                                                    <div className="border-t pt-4 mt-4">
+                                                        <div className="flex justify-between">
+                                                            <span className="font-medium">Total:</span>
+                                                            <span className="font-medium">${totalAmount.toFixed(2)}</span>
+                                                        </div>
+                                                        <Link href="/cart">
+                                                            <Button className="w-full mt-4 bg-[#2bbef9]">
+                                                                View Cart
+                                                            </Button>
+                                                        </Link>
+                                                    </div>
                                                 </div>
-                                                <h3 className="text-lg font-medium text-gray-900 mb-2">
-                                                    No products in the cart.
-                                                </h3>
-                                                <p className="text-gray-500 text-center mb-6">
-                                                    We reduce shipping prices to only 2.49 €!
-                                                </p>
-                                            </div>
+                                            ) : (
+                                                <div className="flex flex-col items-center justify-center py-8">
+                                                    <div className="w-16 h-16 bg-gray-50 rounded-full flex items-center justify-center mb-4">
+                                                        <ShoppingBag className="w-8 h-8 text-gray-400" />
+                                                    </div>
+                                                    <h3 className="text-lg font-medium text-gray-900 mb-2">
+                                                        No products in the cart.
+                                                    </h3>
+                                                    <p className="text-gray-500 text-center mb-6">
+                                                        We reduce shipping prices to only 2.49 €!
+                                                    </p>
+                                                </div>
+                                            )}
                                         </div>
                                     </div>
                                 )}
                             </div>
-
                         </div>
                     </div>
 
                 </div>
                 {/* Categories */}
-                <div className="mt-5 hidden md:hidden lg:hidden xl:hidden xxl:block  border-b pb-2">
+                <div className="mt-5 hidden md:hidden lg:hidden xl:hidden xxl:block border-b pb-2">
                     <div className="container mx-auto">
                         <div className="flex items-center justify-between py-4 gap-2">
                             <Popover>
@@ -408,7 +440,7 @@ export const Header = () => {
                                         </p>
                                     </Button>
                                 </PopoverTrigger>
-                                <PopoverContent className="w-[280px] p-0 mt-[26px] bg-white" align="start">
+                                <PopoverContent className="w-[280px] p-0 mt-[26px] bg-white" align="start" side="bottom">
                                     <div className="py-2">
                                         <Link href="/fruits-vegetables" className="flex items-center gap-3 px-6 py-3 hover:bg-gray-100 transition-colors">
                                             <Apple className="w-5 h-5 text-[#2bbef9]" />
@@ -457,7 +489,7 @@ export const Header = () => {
                             <div className="flex items-center gap-8 lg:gap-4">
                                 <Link
                                     href="/meats-and-seafood"
-                                    className={`flex items-center gap-2 text-[15px] lg:text-[12px] font-medium lg:font-normal text-gray-700 hover:bg-[#f0faff] hover:text-[#2bbef9] transition-colors group h-[45px] px-2 rounded-full flex items-center justify-center ${pathname === '/meats-and-seafood' ? 'bg-[#f0faff] text-[#2bbef9]' : ''}`}
+                                    className={`flex items-center gap-2 text-[15px] lg:text-[12px] font-medium lg:font-normal text-gray-700 hover:bg-[#f0faff] hover:text-[#2bbef9] transition-colors group h-[45px] px-2 rounded-full  justify-center ${pathname === '/meats-and-seafood' ? 'bg-[#f0faff] text-[#2bbef9]' : ''}`}
                                 >
                                     <div className={`w-10 h-10 lg:w-8 lg:h-8 xxl:w-10 xxl:h-10 bg-[#F3F5F9] rounded-full flex items-center justify-center group-hover:bg-[#f0faff] ${pathname === '/meats-and-seafood' ? 'text-[#2bbef9]' : ''}`}>
                                         <Beef className="w-5 h-5 lg:w-4 lg:h-4 text-[#2bbef9] xxl:w-6 xxl:h-6" />
@@ -466,7 +498,7 @@ export const Header = () => {
                                 </Link>
                                 <Link
                                     href="/bakery"
-                                    className={`flex items-center gap-2 text-[15px] lg:text-[12px] font-medium lg:font-normal text-gray-700 hover:bg-[#f0faff] hover:text-[#2bbef9] transition-colors group h-[45px] px-2 rounded-full flex items-center justify-center ${pathname === '/bakery' ? 'bg-[#f0faff] text-[#2bbef9]' : ''}`}
+                                    className={`flex items-center gap-2 text-[15px] lg:text-[12px] font-medium lg:font-normal text-gray-700 hover:bg-[#f0faff] hover:text-[#2bbef9] transition-colors group h-[45px] px-2 rounded-full  justify-center ${pathname === '/bakery' ? 'bg-[#f0faff] text-[#2bbef9]' : ''}`}
                                 >
                                     <div className={`w-10 h-10 lg:w-8 lg:h-8 xxl:w-10 xxl:h-10 bg-[#F3F5F9] rounded-full flex items-center justify-center group-hover:bg-[#f0faff] ${pathname === '/bakery' ? 'text-[#2bbef9]' : ''}`}>
                                         <Cookie className="w-5 h-5 lg:w-4 lg:h-4 text-[#2bbef9] xxl:w-6 xxl:h-6" />
@@ -475,7 +507,7 @@ export const Header = () => {
                                 </Link>
                                 <Link
                                     href="/beverages"
-                                    className={`flex items-center gap-2 text-[15px] lg:text-[12px] font-medium lg:font-normal text-gray-700 hover:bg-[#f0faff] hover:text-[#2bbef9] transition-colors group h-[45px] px-2 rounded-full flex items-center justify-center ${pathname === '/beverages' ? 'bg-[#f0faff] text-[#2bbef9]' : ''}`}
+                                    className={`gap-2 text-[15px] lg:text-[12px] font-medium lg:font-normal text-gray-700 hover:bg-[#f0faff] hover:text-[#2bbef9] transition-colors group h-[45px] px-2 rounded-full flex items-center justify-center ${pathname === '/beverages' ? 'bg-[#f0faff] text-[#2bbef9]' : ''}`}
                                 >
                                     <div className={`w-10 h-10 lg:w-8 lg:h-8 xxl:w-10 xxl:h-10 bg-[#F3F5F9] rounded-full flex items-center justify-center group-hover:bg-[#f0faff] ${pathname === '/beverages' ? 'text-[#2bbef9]' : ''}`}>
                                         <Coffee className="w-5 h-5 lg:w-4 lg:h-4 text-[#2bbef9] xxl:w-6 xxl:h-6" />
@@ -484,7 +516,7 @@ export const Header = () => {
                                 </Link>
                                 <Link
                                     href="/blog"
-                                    className={`flex items-center gap-2 text-[15px] lg:text-[12px] font-medium lg:font-normal text-gray-700 hover:bg-[#f0faff] hover:text-[#2bbef9] transition-colors group h-[45px] px-2 rounded-full flex items-center justify-center ${pathname === '/blog' ? 'bg-[#f0faff] text-[#2bbef9]' : ''}`}
+                                    className={`gap-2 text-[15px] lg:text-[12px] font-medium lg:font-normal text-gray-700 hover:bg-[#f0faff] hover:text-[#2bbef9] transition-colors group h-[45px] px-2 rounded-full flex items-center justify-center ${pathname === '/blog' ? 'bg-[#f0faff] text-[#2bbef9]' : ''}`}
                                 >
                                     <div className={`w-10 h-10 lg:w-8 lg:h-8 xxl:w-10 xxl:h-10 bg-[#F3F5F9] rounded-full flex items-center justify-center group-hover:bg-[#f0faff] ${pathname === '/blog' ? 'text-[#2bbef9]' : ''}`}>
                                         <BookOpen className="w-5 h-5 lg:w-4 lg:h-4 text-[#2bbef9] xxl:w-6 xxl:h-6" />
@@ -493,7 +525,7 @@ export const Header = () => {
                                 </Link>
                                 <Link
                                     href="/contact"
-                                    className={`flex items-center gap-2 text-[15px] lg:text-[12px] font-medium lg:font-normal text-gray-700 hover:bg-[#f0faff] hover:text-[#2bbef9] transition-colors group h-[45px] px-2 rounded-full flex items-center justify-center ${pathname === '/contact' ? 'bg-[#f0faff] text-[#2bbef9]' : ''}`}
+                                    className={`gap-2 text-[15px] lg:text-[12px] font-medium lg:font-normal text-gray-700 hover:bg-[#f0faff] hover:text-[#2bbef9] transition-colors group h-[45px] px-2 rounded-full flex items-center justify-center ${pathname === '/contact' ? 'bg-[#f0faff] text-[#2bbef9]' : ''}`}
                                 >
                                     <div className={`w-10 h-10 lg:w-8 lg:h-8 xxl:w-10 xxl:h-10 bg-[#F3F5F9] rounded-full flex items-center justify-center group-hover:bg-[#f0faff] ${pathname === '/contact' ? 'text-[#2bbef9]' : ''}`}>
                                         <PhoneCall className="w-5 h-5 lg:w-4 lg:h-4 text-[#2bbef9] xxl:w-6 xxl:h-6" />
