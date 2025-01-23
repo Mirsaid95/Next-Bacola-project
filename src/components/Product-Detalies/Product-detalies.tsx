@@ -42,16 +42,16 @@ export const ProductDetails = ({ product }: ProductDetailsProps) => {
     return (
         <div className="flex justify-center w-full bg-white pt-10 pb-20">
             <div className="w-full max-w-[1340px] mx-auto px-4 py-8 shadow-[0_0_10px_rgba(0,0,0,0.1)] bg-white rounded-lg">
-                {/* Main Content */}
+              
                 <div className="flex flex-col lg:flex-row gap-8">
-                    {/* Left Side - Main Product Content */}
+                   
                     <div className="flex-1">
-                        {/* Title */}
+                       
                         <h1 className="text-2xl font-bold text-gray-800 mb-4 lg:hidden">
                             All Natural Italian-Style Chicken Meatballs
                         </h1>
 
-                        {/* Brand Info */}
+                     
                         <div className="flex items-center gap-4 text-sm text-gray-500 mb-6 lg:hidden">
                             <span>Brands: Welch's</span>
                             <div className="flex items-center gap-1">
@@ -67,7 +67,7 @@ export const ProductDetails = ({ product }: ProductDetailsProps) => {
                         </div>
 
                         <div className="flex flex-col lg:flex-row gap-8">
-                            {/* Left side - Images */}
+                          
                             <div className="w-full lg:w-1/2 order-1">
                                 <div className="relative mb-4 max-w-[400px] mx-auto">
                                     <div className="absolute top-2 left-2 z-10">
@@ -106,7 +106,7 @@ export const ProductDetails = ({ product }: ProductDetailsProps) => {
                                 </div>
                             </div>
 
-                            {/* Right side - Product Info */}
+                           
                             <div className="w-full lg:w-1/2 order-2">
                                 {/* Desktop Title and Brand Info */}
                                 <div className="hidden lg:block">
@@ -225,7 +225,7 @@ export const ProductDetails = ({ product }: ProductDetailsProps) => {
                         </div>
                     </div>
 
-                    {/* Right Side - Covid Info and Shipping Details */}
+                   
                     <div className="w-full lg:w-[300px] shrink-0 self-start order-3">
                         <div className="bg-red-50 p-4 rounded-lg mb-6">
                             <p className="text-red-500">Covid-19 Info: We keep delivering.</p>
