@@ -18,4 +18,11 @@ export interface CategoryList {
   title: string;
   image: string | null;
   children: CategoryList[];
+}
+
+export interface ClockProps {
+  hours: number;
+  minutes: number;
+  seconds: number;
+  milliseconds: number;
 } 

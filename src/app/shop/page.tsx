@@ -226,7 +226,7 @@ export default function ShopPage() {
                         </div>
                     </div>
 
-                    <div className="grid grid-template-columns: repeat(auto-fill, minmax(350, 1fr)) gap-4">
+                    <div className="flex flex-wrap gap-4">
                         {products.map((product) => (
                             <div key={product.id}>
                                 <ProductCard product={product} />

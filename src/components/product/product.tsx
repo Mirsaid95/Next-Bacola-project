@@ -7,7 +7,7 @@ import { Star, Heart, ZoomIn, X } from "lucide-react";
 import { useCart } from "@/context/CartContext";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { Dialog, DialogContent, DialogFooter } from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogFooter, DialogClose } from "@/components/ui/dialog";
 
 interface ProductProps {
     productData: ProductDataType[] | undefined | null;
@@ -264,19 +264,17 @@ export const Product = ({ productData }: ProductProps) => {
             </Dialog>
 
             <Dialog open={showZoomModal} onOpenChange={setShowZoomModal}>
-                <DialogContent className="sm:max-w-4xl p-0">
+                <DialogContent className="sm:max-w-4xl p-3">
+                    <DialogClose className="absolute right-4 top-4 w-[40px] h-[40px] rounded-full bg-white shadow-[0_2px_8px_rgba(0,0,0,0.3)] hover:bg-gray-100 transition-colors flex items-center justify-center z-50">
+                        <svg width="20" height="20" viewBox="0 0 24 24">
+                            <path d="M18 6L6 18M6 6L18 18" stroke="black" strokeWidth="2" strokeLinecap="round"/>
+                        </svg>
+                    </DialogClose>
+
                     <div className="relative">
+                        <div className="grid grid-cols-2 gap-6">
 
-                        <button
-                            onClick={() => setShowZoomModal(false)}
-                            className="absolute top-2 right-2 p-2 bg-white rounded-full shadow-md hover:bg-gray-100 z-10"
-                        >
-                            <X className="w-5 h-5 text-gray-600" />
-                        </button>
-
-                        <div className="flex flex-col md:flex-row gap-6 p-6">
-
-                            <div className="flex-1 max-w-[500px] mx-auto">
+                            <div className="h-[500px] bg-gray-50">
                                 <div className="relative aspect-square">
                                     <img
                                         src={zoomedProduct?.image}
@@ -287,8 +285,8 @@ export const Product = ({ productData }: ProductProps) => {
                             </div>
 
 
-                            <div className="md:w-1/3 flex flex-col justify-center">
-                                <h2 className="text-xl font-semibold mb-4">
+                            <div className="flex flex-col justify-center">
+                                <h2 className="text-[28px] font-semibold mb-4">
                                     {zoomedProduct?.title}
                                 </h2>
 
@@ -318,7 +316,7 @@ export const Product = ({ productData }: ProductProps) => {
                                             if (zoomedProduct) handleAddToCart(zoomedProduct);
                                             setShowZoomModal(false);
                                         }}
-                                        className="w-full bg-[#00cdec] hover:bg-[#00b8d4] text-white rounded-full py-6"
+                                        className="w-[250px] bg-[#00cdec] hover:bg-[#00b8d4] text-white rounded-full py-6"
                                     >
                                         Add to Cart
                                     </Button>
@@ -328,7 +326,7 @@ export const Product = ({ productData }: ProductProps) => {
                                             if (zoomedProduct) handleWishlistClick(new MouseEvent('click') as any, zoomedProduct);
                                             setShowZoomModal(false);
                                         }}
-                                        className="w-full bg-white text-gray-600 border-2 border-gray-200 hover:bg-gray-50 rounded-full py-6"
+                                        className="w-[250px] bg-white text-gray-600 border-2 border-gray-200 hover:bg-gray-50 rounded-full py-6"
                                     >
                                         Add to Wishlist
                                     </Button>

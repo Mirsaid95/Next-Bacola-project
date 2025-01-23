@@ -2,10 +2,9 @@ export interface ProductDataType {
     id: string;
     title: string;
     name?: string;
-    price: string | number;
+    price: number | string;
     oldPrice?: number;
     image: string;
-    // ... boshqa kerakli maydonlar
 }
 
 export interface productData {
@@ -13,7 +12,7 @@ export interface productData {
         id: number;
         title?: string;
         image: string;
-        price: string;
+        price: number | string;
     }
 }
 

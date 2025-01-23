@@ -4,6 +4,7 @@ import { Inter } from "next/font/google";
 import { Header } from "@/components/header/header";
 import { Footer } from "@/components/footer/footer";
 import { CartProvider } from "@/context/CartContext";
+import { Toaster } from 'react-hot-toast';
 
 const inter = Inter({ subsets: ["latin"], display: "swap", variable: "--font-inter"});
 
@@ -33,6 +34,16 @@ export default function RootLayout({
             <Footer />
           </div>
         </CartProvider>
+        <Toaster 
+          position="top-right"
+          toastOptions={{
+            duration: 2000,
+            style: {
+              background: '#fff',
+              color: '#363636',
+            },
+          }}
+        />
       </body>
     </html>
   );

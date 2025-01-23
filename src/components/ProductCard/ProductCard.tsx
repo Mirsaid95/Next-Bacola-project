@@ -6,6 +6,7 @@ import { Star, Heart, ZoomIn } from "lucide-react";
 import { useCart } from "@/context/CartContext";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import Clock from "../clock/clock";
 
 interface ProductCardProps {
     product: ProductDataType;
@@ -61,7 +62,7 @@ export const ProductCard = ({ product }: ProductCardProps) => {
             onClick={handleProductClick}
             className="cursor-pointer group relative"
         >
-            <div className="relative flex flex-col border rounded-lg h-[450px] w-[230px] hover:shadow-lg transition-shadow p-2">
+            <div className="relative flex flex-col border rounded-lg h-[450px] w-[340px] md:w-[230px] hover:shadow-lg transition-shadow p-2">
                 <div className="absolute top-2 left-2 z-20">
                     {discountPercentage > 0 && (
                         <div className="bg-[#00cdec] text-white px-2 py-0.5 rounded text-xs w-[45px] text-center">
@@ -75,11 +76,11 @@ export const ProductCard = ({ product }: ProductCardProps) => {
                     </div>
                 </div>
 
-                <div className="relative flex justify-center w-[217px] h-[200px] p-2 mb-2 items-center">
+                <div className="relative flex justify-center w-[100%] h-[200px] p-2 mb-2 items-center">
                     <img
                         src={product.image}
                         alt=""
-                        className="w-[100%] h-[100%] object-cover"
+                        className="w-[100%] h-[100%] object-contain"
                     />
                     <div className="absolute right-2 top-2 z-10">
                         <div className="flex flex-col gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
@@ -165,6 +166,15 @@ export const ProductCard = ({ product }: ProductCardProps) => {
                         </Button>
                     )}
                 </div>
+
+                {product.discount && (
+                    <Clock 
+                        hours={47} 
+                        minutes={16} 
+                        seconds={51} 
+                        milliseconds={51} 
+                    />
+                )}
             </div>
         </div>
     );
