@@ -10,8 +10,6 @@ import { ProductDataType } from "@/service/queries/GetProduct";
 import {
   Dialog,
   DialogContent,
-  DialogHeader,
-  DialogTitle,
   DialogClose,
 } from "@/components/ui/dialog";
 
@@ -294,7 +292,7 @@ export function NewProducts({ productData }: NewProductsProps) {
               </div>
 
               <div className="p-6 pr-8">
-                {/* Brand Logo */}
+                
                 <div className="w-12 h-12 bg-gray-100 rounded-lg mb-6 flex items-center justify-center">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
