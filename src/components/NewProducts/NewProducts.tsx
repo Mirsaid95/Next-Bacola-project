@@ -186,7 +186,8 @@ export function NewProducts({ productData }: NewProductsProps) {
                 <Image
                   src={product.image}
                   alt={product.title}
-                  fill
+                  width={160}
+                  height={160}
                   className="object-contain transform group-hover:scale-110 transition-transform duration-500"
                 />
               </div>
@@ -286,8 +287,10 @@ export function NewProducts({ productData }: NewProductsProps) {
                 <Image
                   src={selectedProduct.image}
                   alt={selectedProduct.title}
-                  fill
+                  width={500}
+                  height={500}
                   className="object-cover p-8"
+                  priority
                 />
               </div>
 

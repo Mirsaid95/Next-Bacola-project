@@ -22,6 +22,8 @@ import {
   Carrot,
   Store,
   Heart,
+  X,
+  ChevronDown,
 } from "lucide-react";
 import {
   Popover,
@@ -520,9 +522,11 @@ export const Header = () => {
                               key={item.id}
                               className="flex items-center gap-4"
                             >
-                              <img
+                              <Image
                                 src={item.image}
                                 alt={item.name}
+                                width={64}
+                                height={64}
                                 className="w-16 h-16 object-cover rounded"
                               />
                               <div className="flex-1">

@@ -5,6 +5,7 @@ import { Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useCart } from "@/context/CartContext";
 import { useState } from "react";
+import Image from "next/image";
 
 interface ProductDetailsProps {
     product: ProductDataType;
@@ -80,10 +81,13 @@ export const ProductDetails = ({ product }: ProductDetailsProps) => {
                                             RECOMMENDED
                                         </div>
                                     </div>
-                                    <img 
+                                    <Image 
                                         src={thumbnails[selectedImage].image} 
                                         alt="Product"
+                                        width={400}
+                                        height={400}
                                         className="w-full h-[400px] object-contain rounded-lg shadow-md"
+                                        priority
                                     />
                                 </div>
                                 <div className="flex justify-center gap-4 mt-4">
@@ -96,9 +100,11 @@ export const ProductDetails = ({ product }: ProductDetailsProps) => {
                                             }`}
                                             style={{ width: '80px', height: '80px' }}
                                         >
-                                            <img 
+                                            <Image 
                                                 src={thumb.image} 
                                                 alt={`Thumbnail ${index + 1}`}
+                                                width={80}
+                                                height={80}
                                                 className="w-full h-full object-cover"
                                             />
                                         </div>
