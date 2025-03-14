@@ -53,7 +53,7 @@ export const ProductDetails = ({ product }: ProductDetailsProps) => {
 
                      
                         <div className="flex items-center gap-4 text-sm text-gray-500 mb-6 lg:hidden">
-                            <span>Brands: Welch's</span>
+                            <span>Brands: Welch&apos;s</span>
                             <div className="flex items-center gap-1">
                                 <div className="flex">
                                     {[1, 2, 3].map((star) => (
@@ -114,7 +114,7 @@ export const ProductDetails = ({ product }: ProductDetailsProps) => {
                                         All Natural Italian-Style Chicken Meatballs
                                     </h1>
                                     <div className="flex items-center gap-4 text-sm text-gray-500 mb-6">
-                                        <span>Brands: Welch's</span>
+                                        <span>Brands: Welch&apos;s</span>
                                         <div className="flex items-center gap-1">
                                             <div className="flex">
                                                 {[1, 2, 3].map((star) => (

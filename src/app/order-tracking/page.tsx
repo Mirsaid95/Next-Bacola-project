@@ -8,7 +8,7 @@ const OrderTracking = () => {
         <div className="flex flex-col gap-6">
           <h5 className="text-[14px] font-normal text-[#202435]">
             To track your order please enter your Order ID in the box below and
-            press the "Track" button. This was given to you on your receipt and
+            press the &quot;Track&quot; button. This was given to you on your receipt and
             in the confirmation email you should have received.
           </h5>
           <form className="flex flex-col gap-4">
